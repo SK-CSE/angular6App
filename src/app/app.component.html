@@ -5,7 +5,10 @@
   <ul class='nav nav-pills'>
     <li><a class='nav-link' [routerLink]="['/welcome']">Home</a></li>
     <li><a class='nav-link' [routerLink]="['/products']">Product List</a></li>
+    <li *ngIf="authService.yo"><a class='nav-link' [routerLink]="['/firebase']">Firebase Demo</a></li>
   </ul>
+  <button (click)="authService.login()">Login</button>
+  <button (click)="authService.logout()">Logout</button>
 </nav>
 <div class='container'>
   <router-outlet></router-outlet>
