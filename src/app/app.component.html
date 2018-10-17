@@ -4,7 +4,9 @@
   <a class='navbar-brand'>{{pageTitle}}</a>
   <ul class='nav nav-pills'>
     <li><a class='nav-link' [routerLink]="['/welcome']">Home</a></li>
+    <li><a class='nav-link' [routerLink]="['/welcome']">Home9</a></li>
     <li><a class='nav-link' [routerLink]="['/products']">Product List</a></li>
+    <li><a class='nav-link' [routerLink]="['/upload']">Upload</a></li>
     <li *ngIf="authService.yo"><a class='nav-link' [routerLink]="['/firebase']">Firebase Demo</a></li>
   </ul>
   <button (click)="authService.login()">Login</button>

@@ -14,7 +14,6 @@ export class AuthService {
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth) {
-
       this.authWatcher = afAuth.authState;
       this.authWatcher.subscribe(res => {
         if (res && res.uid) {
@@ -25,15 +24,19 @@ export class AuthService {
           console.log('user not logged in');
         }
       });
-
     }
 
     login() {
-      this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then(_ => {this.router.navigate([`/firebase`]);
+      this.afAuth.auth.signInWithEmailAndPassword('skas@yopmail.com', 'Simpli@123')
+      .then(_ => {this.router.navigate([`/firebase`]);
         console.log(this.authWatcher);
       })
-        .catch(error => console.log('auth error', error));
+      .catch(error => console.log('auth error', error));
+      // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      // .then(_ => {this.router.navigate([`/firebase`]);
+      //   console.log(this.authWatcher);
+      // })
+      // .catch(error => console.log('auth error', error));
     }
 
     logout() {
